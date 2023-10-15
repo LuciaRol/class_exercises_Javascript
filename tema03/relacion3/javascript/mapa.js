@@ -11,6 +11,7 @@ mapa = [
   
 valor_introducido =  parseInt(prompt("Introduce las coordenadas de inicio: "));
 
+// cambiar el parametro pasado a mapa
 function posicionTesoro(valor_introducido){
   num_a_string = valor_introducido.toString().split("",2);
   posicion_x_original = num_a_string[0] - 1

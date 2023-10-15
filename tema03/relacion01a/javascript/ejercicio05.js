@@ -22,7 +22,7 @@ function getRandomColorSequence(colores, length){
         arrayFinal.push(color);
     }
     //numAleatorio = Math.floor(Math.random() * colores.length);
-    //papo.push(colores[numAleatorio]);
+    //.push(colores[numAleatorio]);
     return arrayFinal;
 }
 
