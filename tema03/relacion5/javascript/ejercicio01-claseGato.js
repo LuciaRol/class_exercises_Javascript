@@ -3,19 +3,19 @@ class Cat {
         this.name = name;
         this.tiredness = 10;
         this.hunger = 10;
-        this.lonliness = 10;
+        this.loneliness = 10;
         this.happiness = 10;
     }
 
-    feed (amount = 1){
+    feed (amount){
         this.hunger -= amount; 
     }
     
-    sleep (amount = 1){
+    sleep (amount){
         this.tiredness -= amount;
     }
     
-    pet (amount = 1){
+    pet (amount){
         if (Math.random() < 0.5) {
             this.happiness += amount;
             this.loneliness -= amount;
@@ -35,7 +35,7 @@ class Cat {
 
 nerdo = new Cat("Nerdodivergente");
   
-nerdo.feed(2);
+nerdo.feed(Math.round(Math.random()*10));
 nerdo.sleep(1);
 nerdo.pet(5);
 nerdo.statusCat();
