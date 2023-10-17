@@ -1,10 +1,23 @@
+
+// Creación de la clase Libro. Se pasan por parámetros en su constructor: título, género y autor.
 class Book{
-    constructor(title, genre, author, readed_book, read_date){
+    constructor(title, genre, author){
         this.title = title;
         this.genre = genre;
         this.author = author;
-        this.readed_book = readed_book;
-        this.read_date = new Date(read_date);
+        this.readed_book = undefined;
+        this.read_date = null;
+    }
+
+    // Función para marcar un libro como leído
+    readedBookMarker(readed_book){
+        if(read_date != null){
+            return readed_book = true;
+        }
+    }
+
+    finishedDate(){
+
     }
 
     statusBook() {
@@ -19,20 +32,33 @@ class Book{
     }
 }
 
-class Booklist extends Book{
+// Creación de la clase Booklist. No se pasan parámetros en el constructor.
+class Booklist{
     constructor(){
-        super(Book)
-
+        
         this.n_readed = 0;
         this.n_not_readed = 0;
-        this.next_book = new Book;
-        this.current_book = new Book;
-        this.last_book = new Book;
+        this.next_book = 0;
+        this.current_book = 0;
+        this.last_book = 0;
         this.all_books = new Array();
     }
 
     add(Book){
-        this.all_books = this.all_books.push(Book);
+        this.all_books.push(Book);
+    }
+
+    finishCurrentBook(){
+        this.read_date = new Date(Date.now());
+        if(readed_date != null){
+            this.readed_book = true;
+            this.last_book = last_book++;
+            this.current_book = next_book[0];
+            this.next_book = next_book--;
+        }
+        
+        
+
     }
 
     statusBookList() {
@@ -47,10 +73,10 @@ libro = new Book("La historia interminable", "Fantasía", "Michael Ende", true, 
 
 libro.statusBook();
 
-puto = new Booklist();
+listaLibros = new Booklist();
 
-puto.add(libro);
+listaLibros.add(libro);
 
-puto.statusBookList();
+listaLibros.statusBookList();
 
 
