@@ -12,8 +12,6 @@ class Juego{
         generarTablero(x, y) {
             const tablero = [];
             let contador = 1;
-            x = 5;
-            y = 5;
           
             for (let i = 0; i < x.length; i++) {
               const fila = [];
