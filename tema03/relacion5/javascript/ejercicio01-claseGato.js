@@ -25,7 +25,7 @@ class Cat {
         }
 
     statusCat() {
-        console.log(`${this.name} have next status:`);
+        console.log(`Your kitty ${this.name} have next status:`);
         console.log(`Tiredness: ${this.tiredness}`);
         console.log(`Hunger: ${this.hunger}`);
         console.log(`Loneliness: ${this.loneliness}`);
@@ -33,9 +33,9 @@ class Cat {
         }
 }
 
-nerdo = new Cat("Nerdodivergente");
+nerdo = new Cat(prompt("What´s your cat´s name: "));
   
 nerdo.feed(Math.round(Math.random()*10));
-nerdo.sleep(1);
-nerdo.pet(5);
+nerdo.sleep(Math.round(Math.random()*10));
+nerdo.pet(Math.round(Math.random()*10));
 nerdo.statusCat();

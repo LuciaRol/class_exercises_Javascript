@@ -1,4 +1,4 @@
-opcion = ["piedra", "papel", "tijera"];
+const opcion = ["piedra", "papel", "tijera"];
 
 class Jugador{
     constructor(nombre){
