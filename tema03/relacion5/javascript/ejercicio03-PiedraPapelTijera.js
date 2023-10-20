@@ -1,3 +1,5 @@
+opcion = ["piedra", "papel", "tijera"];
+
 class Jugador{
     constructor(nombre){
         this.nombre = nombre;
@@ -21,7 +23,7 @@ class JugadorVirtual extends Jugador{
     }
 
     opcionAleatoria(){
-        opciones = ["Piedra", "Papel", "Tijera"];
+
         numeroAlatorio = Math.floor(Math.random()*3);
         this.opcion = opcion[numeroAleatorio];
     }
@@ -29,7 +31,23 @@ class JugadorVirtual extends Jugador{
 
 class Juego{
     constructor(){
-        this.jugadores[new Jugador("Nerdodivergente"), new JugadorVirtual()];
+
+        humano = new Jugador("Nerdodivergente");
+        ordenador = new JugadorVirtual()
+
+        this.jugadores[humano, ordenador];
     }
+
+    sacarOpcion(){
+        humano = this.jugadores[0];
+        ordenador = this.jugadores[1];
+
+        humano.escogerOpcion(prompt("Elige piedra, papel o tijera: " + opcion).toUpperCase);
+        ordenador.opcionAleatoria();
+    }
+
+    opcionJugador = Jugador.getOpcion();
+    opcionOrdenador = JugadorVirtual.getOpcion();
+
 }
 
