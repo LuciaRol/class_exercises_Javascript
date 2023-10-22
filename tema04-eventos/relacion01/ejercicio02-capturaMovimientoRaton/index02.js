@@ -4,7 +4,7 @@ capturaRaton.addEventListener("mousemove", (event) => {
     const x = event.clientX;
     const y = event.clientY;
 
-    const coordenadas = `Posición del ratón (${x}, ${y})`;
+    const coordenadas = `Coordenadas del ratón: (x = ${x}, y = ${y}).`;
 
     document.getElementById("posicion").innerHTML = coordenadas;
 }
