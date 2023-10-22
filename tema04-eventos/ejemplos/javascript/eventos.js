@@ -5,5 +5,3 @@ btn.addEventListener("click", () => {
     connsole.log("Salta evento");
 }
 )
-
-sdsfs
