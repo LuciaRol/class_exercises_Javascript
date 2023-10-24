@@ -6,7 +6,14 @@ window.onload = () =>{
 
 let moverImagen = false;
 function arrastra(){
-    const imagen = document.getElementById("imagen");
+    const imagen = document.querySelectorAll(".imagen");
+
+
+    imagenes.forEach((imagen) => {
+        imagen.addEventListener("click", (event) => {
+            moverImagen = !moverImagen;
+        })
+    
 
     imagen.addEventListener("click", (event) =>{
         moverImagen = !moverImagen;
