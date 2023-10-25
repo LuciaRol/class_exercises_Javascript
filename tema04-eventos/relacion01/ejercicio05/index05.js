@@ -16,9 +16,9 @@ function moverRaton(){
             event.target.style.backgroundColor = "red";
         else if(event.shiftKey)
             event.target.style.backgroundColor = "blue";
+        else if(event.altKey)
+            event.style.backgoundColor =
     }
 
     );
 }
-
-

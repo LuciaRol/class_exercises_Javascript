@@ -6,23 +6,24 @@ window.onload = () =>{
 
 let moverImagen = false;
 function arrastra(){
-    const imagen = document.querySelectorAll(".imagen");
-
+    const imagenes = document.querySelectorAll("imagen");
+    imagenSeleccionada = null;
+    offsetLeft = 0;
+    offsetTop = 0;
 
     imagenes.forEach((imagen) => {
         imagen.addEventListener("click", (event) => {
             moverImagen = !moverImagen;
+            imagenSeleccionada = event.target;
+            offsetLeft = event.clientX -event.target.offsetLeft;
+            offsetTop = event.clientY -event.target.offsetTop;
         })
-    
-
-    imagen.addEventListener("click", (event) =>{
-        moverImagen = !moverImagen;
     })
-
+    
         document.addEventListener("mousemove", (event) =>{
             if(moverImagen){
-                imagen.style.left = event.clientX - 20 + "px";
-                imagen.style.top = event.clientY - 20 + "px";
+                imagenSeleccionada.target.style.left = event.clientX - offsetLeft + "px";
+                imagenSeleccionada.target.style.top = event.clientY - offsetTop + "px";
             }
             
             console.log(event.screenX + event.screenY);
@@ -30,6 +31,7 @@ function arrastra(){
         }  
         )      
 }
+
 
 // se hace parecido pero con el event.target
 
