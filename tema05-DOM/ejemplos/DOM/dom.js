@@ -6,6 +6,5 @@ Window.onload = () =>{
         nuevoLI = document.createElement("li");
         nuevoLI.inner = texto;
         nuevoLI.addEventListener("click", borrarLI)
-        document.get
     })
 }
