@@ -1,13 +1,34 @@
 window.onload = () => {
     const fraseBienvenida = document.getElementById("fraseBienvenida");
     const nombreGuardado = obtenerCookie("usuario");
+    const colorFondo = document.getElementById("colorFondo");
+    const cambiaColorFondo = document.getElementById("changecolorFondo");
+    const tamanoLetra = document.getElementById("tamanoLetra");
+    const tamanoLetraNumero = document.getElementById("tamanoLetraNumero");
+
+    const colorFondoGuardado = obtenerCookie("colorFondo");
+    const tamanoLetraGuardada = obtenerCookie("tamanoLetra");
+
+    // CAMBIAR TAMAÑO DE LETRA
+    function cambiaTamanoLetra() {
+        const nuevoTamano = tamanoLetra.valor + "px";
+        document.body.style.tamanoLetra = nuevoTamano;
+        tamanoLetraNumero.textContent = nuevoTamano;
+
+        guardarCookie("tamanoLetra", nuevoTamano, 365);
+    }
+
+    tamanoLetra.addEventListener("input", cambiaTamanoLetra);
 
     if (nombreGuardado) {
+
         fraseBienvenida.innerHTML = `Bienvenido de nuevo, ${decodeURIComponent(nombreGuardado)}! <a href="#" id="cerrarSesion">Cerrar Sesión</a>`;
         const cerrarSesion = document.getElementById("cerrarSesion");
 
         cerrarSesion.addEventListener("click", function() {
             eliminarCookie("usuario");
+            eliminarCookie("colorFondo");
+            eliminarCookie("tamanoLetra");
             fraseBienvenida.innerHTML = "Sesión cerrada. Haga clic en 'Actualizar' para continuar.";
         });
     } else {
@@ -15,7 +36,7 @@ window.onload = () => {
         const usuario = prompt("Por favor, ingrese su nombre:");
 
         if (usuario) {
-            guardarCookie("usuario", encodeURIComponent(usuario), 5 / (24 * 60));
+            guardarCookie("usuario", encodeURIComponent(usuario), 5 / (24 * 60)); 
             fraseBienvenida.innerHTML = `¡Tengo tu cookie, ${decodeURIComponent(usuario)}! <a href="#" id="cerrarSesion">Cerrar Sesión</a>`;
         }
     }
@@ -28,12 +49,12 @@ window.onload = () => {
         document.cookie = nombre + "=" + valor + ";" + expires + ";path=/";
     }
 
-    // ELIMINAR COOKIE
+    // BORRAR COOKIE
     function eliminarCookie(nombre) {
-        document.cookie = nombre + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = nombre + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     }
 
-    // OBTENER COOKIE
+    // OBTENER VALOR DE UNA COOKIE
     function obtenerCookie(nombre) {
         const nombreCookie = nombre + "=";
         const decodedCookie = decodeURIComponent(document.cookie);
@@ -50,5 +71,23 @@ window.onload = () => {
         }
 
         return null;
+    }
+
+
+    cambiaColorFondo.addEventListener("click", function() {
+        const colorFondoNuevo = colorFondo.valor;
+        document.body.style.backgroundColor = colorFondoNuevo;
+
+        guardarCookie("colorFondo", colorFondoNuevo, 365); 
+    });
+
+  
+    if (colorFondoGuardado) {
+        document.body.style.backgroundColor = colorFondoGuardado;
+    }
+    if (tamanoLetraGuardada) {
+        document.body.style.tamanoLetra = tamanoLetraGuardada;
+        tamanoLetra.valor = parseInt(tamanoLetraGuardada);
+        tamanoLetraNumero.textContent = tamanoLetraGuardada;
     }
 };

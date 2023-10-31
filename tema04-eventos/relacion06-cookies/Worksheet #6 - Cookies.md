@@ -9,13 +9,18 @@ proporcionar también un enlace para borrar la cookie (lo que podríamos llamar
 'Cerrar Sesión').  
   
 Nota: Asegúrate de que tu cookie acepta todo tipo de caracteres (como ñ, espacio
-en blanco, acentos, etc....)  
+en blanco, acentos, etc....)  HECHO
   
 2) Mejora el ejercicio anterior dando al usuario las opciones para que pueda
 configurar el color de fondo, de párrafo y el tamaño de la letra.  
   
 3) ¿Cómo podemos hacer que la segunda cookie se borre automáticamente al cerrar
 el navegador? Compruébalo.  
+
+# Habría que cambiar el daysToExpire de la función setCookie a 0
+setCookie("myCookie", "myValue", 0); // Se eliminará al cerrar el navegador
+
+
   
 4) Crea 3 funciones genéricas para el manejo de cookies:  
     a) CrearCookie(identificador,valor,fechaExpiracion): Crea la cookie con sólo
