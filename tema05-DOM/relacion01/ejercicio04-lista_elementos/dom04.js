@@ -1,17 +1,19 @@
 window.onload = () => {
     console.log("La página se ha cargado correctamente");
 
-    const boton = document.getElementsByTagName("boton")[0];
-    const lista = document.getElementById("lista");
-    const input = document.getElementById("elemento");
-
-    boton.getElementsByTagName("button")[0].addEventListener("click", () => {
-        console.log("Añadir");
+    document.getElementById("btn").addEventListener("click", () => {
         input = document.getElementById("elemento");
-        texto = input.value;
-        nuevoLI = document.createElement("li");
-        nuevoLI.innerHTML = texto;
-        lista.appendChild("click", nuevoLI);
-    });
+        nuevoElemento = input.value;
+        
+        if (nuevoElemento.trim() !== "") {
+          lista = document.getElementById("lista");
+          agregarElemento = document.createElement("li");
+
+          agregarElemento.textContent = nuevoElemento;
+          lista.appendChild(agregarElemento);
+          input.value = ""; 
+        }
+      });
+      
 };
 
