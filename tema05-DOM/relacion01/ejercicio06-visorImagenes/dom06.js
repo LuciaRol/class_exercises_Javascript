@@ -4,12 +4,12 @@ window.onload = ()=> {
     anteriorBtn = document.getElementById("anteriorBtn");
     siguienteBtn = document.getElementById("siguienteBtn")
     pikachuActual = 1;
-    imagenesPikachu = [];
+    imagenesPikachu = 5;
   
     mostrarPikachu = (seleccionImagenes) => {
       if (seleccionImagenes >= 1 && seleccionImagenes <= imagenesPikachu) {
-        pikachu.src = "img" + seleccionImagenes + ".png";
-        pikachu.alt = "img " + seleccionImagenes;
+        pikachu.src = "img/pika" + seleccionImagenes + ".png";
+        //pikachu.alt = "img " + seleccionImagenes;
         pikachuActual = seleccionImagenes;
       }
     }
