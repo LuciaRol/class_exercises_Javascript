@@ -1,5 +1,6 @@
 window.onload = () => {
 
+    // DECLARACIÓN DE VARIABLES 
     segundos = 0;
     agregarSegundos = document.getElementById("segundos")
     milisegundos = 0;
@@ -9,7 +10,7 @@ window.onload = () => {
     btnStop = document.getElementById("btnStop");
     btnReset = document.getElementById("btnReset");
 
-    tiempo;
+    intervaloTiempo;
 
 }
 
@@ -27,3 +28,5 @@ btnReset = ("click", () =>{
     milisegundos = "";
 
 })
+
+
