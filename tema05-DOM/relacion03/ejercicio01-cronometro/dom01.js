@@ -1,5 +1,7 @@
 window.onload = () => {
 
+    console.log("La página se ha cargado correctamente.")
+
     // DECLARACIÓN DE VARIABLES 
     segundos = 0;
     agregarSegundos = document.getElementById("segundos")
@@ -12,21 +14,49 @@ window.onload = () => {
 
     intervaloTiempo;
 
+
+// CALCULA EL TIEMPO TRANSCURRIDO
+
+function calcula_tiempo_transcurrido(){
+    milisegundos++;
+    if(milisegundos <= 9){
+        agregarMilisegundos.innerHTML = "0" + milisegundos;
+    }
+    if (milisegundos > 9){
+        agregarMilisegundos.innerHTML = "0" + milisegundos;
+    }
+
+    if(milisegundos > 99){
+        segundos++;
+        agregarSegundos.innerHTML = "0" + segundos;
+        segundos = 0;
+        agregarMilisegundos.innerHTML = "0" + 0;
+    }
+    if (segundos < 9){
+        agregarSegundos.innerHTML = segundos;
+    }
 }
 
+
 btnStart = ("click", () =>{
-    vaciarTiempo(tiempo);
-    intervaloTiempo = setIntervaloTiempo(comenzarTiempo, 10);
+    intervaloTiempo = setIntervaloTiempo(calcula_tiempo_transcurrido);
 })
 
 btnStop = ("click", () =>{
-    vaciarTiempo(tiempo);
+    vaciarTiempo(intervaloTiempo);
 
 })
 
 btnReset = ("click", () =>{
-    milisegundos = "";
+    vaciarTiempo(intervaloTiempo);
+    milisegundos = "00";
+    segundos = "00";
+    agregarSegundos.innerHTML = segundos;
+    agregarMilisegundos.innerHTML = milisegundos;
 
 })
+
+
+}
 
 
