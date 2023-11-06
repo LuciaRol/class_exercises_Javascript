@@ -10,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height:  100vh;
-    background: linear-gradient(45deg,#9c27b0,#31d5eb);
+    background:  #54afff7e;/* linear-gradient(45deg,#9c27b0,#31d5eb); */
 }
 
 .container{
@@ -32,7 +32,7 @@ body{
 
 .container .box h2{
     font-size: 1.75em;
-    font-weight: 500;
+    font-weight: bold;
     color: #333;
     margin-bottom: 15px;
     width: 100%;
@@ -49,36 +49,80 @@ body{
     position: relative;
     width: 100%;
     padding: 10px;
-    border: 1px solid #333;
+    border: 1px solid #3333337e;
     outline: none;
     border-radius: 5px;
 }
 
 .container .box #grocery button{
-    background: #4bae4f;
-    color: #fff;
+    background: #54aeff;
+    color: #000;
     min-width: 100px;
-    font-weight: 500;
-    border: 1px solid #4bae4f;
+    font-weight: bold;
+    border: 1px solid #54aeff;
     border-radius: 5px;
     cursor: pointer;
     outline: none;
 }
+
+.container .box #grocery input:focus{
+    border: 2px solid blue;
+}
+
 
 .container ol{
     position: relative;
     padding:  10px 20px 10px 40 px;
     width: 100%;
     min-height: 400px;
-    /* Crear efecto blox de notas */
+    list-style: none;
+    /* Crea efecto blox de notas */
     background: #fff repeating-linear-gradient(transparent 0%, transparent 99%, #000 99%, #000 100%);
     background-size: 50px 50px;
-    box-shadow: 15px 15px 15px rgba(0,0,0,0.1);
+    /* box-shadow: 15px 15px 15px rgba(0,0,0,0.1); */
     border-radius: 0px 0px 10px 10px;
 }
 
-.cotainer ol li{
+.container ol li{
     position: relative;
     font-size: 1.5em;
     height: 50px;
 }
+
+  .container .box .delete {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+
+  .container .box .edit {
+    color: green;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.container .box #clear{
+    background: transparent;
+    color: #f00;
+    min-width: 100px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+  
