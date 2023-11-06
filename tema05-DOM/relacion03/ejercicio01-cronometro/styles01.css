@@ -19,6 +19,7 @@ body{
 .container{
     width: 800px;
     margin: 30px auto;
+    margin-top: 15%;
     color: var(--color-blanco);
     text-align: center;
 }
@@ -47,6 +48,8 @@ body{
    cursor: pointer;
 }
 
-button{
+.btn:hover{
+    background-color: var(--color-blanco);
+    color: var(--color-naranja);
 
 }

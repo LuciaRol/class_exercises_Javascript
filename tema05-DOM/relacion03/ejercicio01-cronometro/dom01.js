@@ -12,7 +12,7 @@ window.onload = () => {
     btnStop = document.getElementById("btnStop");
     btnReset = document.getElementById("btnReset");
 
-    intervaloTiempo;
+    interval;
 
 
 // CALCULA EL TIEMPO TRANSCURRIDO
@@ -23,7 +23,7 @@ function calcula_tiempo_transcurrido(){
         agregarMilisegundos.innerHTML = "0" + milisegundos;
     }
     if (milisegundos > 9){
-        agregarMilisegundos.innerHTML = "0" + milisegundos;
+        agregarMilisegundos.innerHTML = milisegundos;
     }
 
     if(milisegundos > 99){
@@ -39,16 +39,17 @@ function calcula_tiempo_transcurrido(){
 
 
 btnStart = ("click", () =>{
-    intervaloTiempo = setIntervaloTiempo(calcula_tiempo_transcurrido);
+    vaciarTiempo(interval);
+    interval = setInterval(calcula_tiempo_transcurrido, 10);
 })
 
 btnStop = ("click", () =>{
-    vaciarTiempo(intervaloTiempo);
+    vaciarTiempo(interval);
 
 })
 
 btnReset = ("click", () =>{
-    vaciarTiempo(intervaloTiempo);
+    vaciarTiempo(interval);
     milisegundos = "00";
     segundos = "00";
     agregarSegundos.innerHTML = segundos;
