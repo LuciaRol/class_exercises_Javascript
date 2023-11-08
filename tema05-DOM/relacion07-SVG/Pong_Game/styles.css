@@ -1,5 +1,43 @@
-/* LÍNEA VERTICAL 
-hr{
+body {
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  
+  #container {
+    position: relative;
+  }
+  
+  svg {
+    border: 2px solid white; 
+  }
+  
+  #bola {
+    fill: #fff; 
+    stroke: #fff;
+    stroke-width: 1;
+  }
+  
+  #player1 {
+    position: absolute;
+    left: 10px; 
+  }
+  
+  #player2 {
+    position: absolute;
+    right: 10px; 
+    top: 350px; 
+  }
+  
+
+
+
+
+
+
+/* hr{
     height:100vh;
     width:.5vw;
     border-width:0;
@@ -7,5 +45,4 @@ hr{
     background-color:#000;
     display: grid;
     place-items: center;
-   }
-*/
+   } */
