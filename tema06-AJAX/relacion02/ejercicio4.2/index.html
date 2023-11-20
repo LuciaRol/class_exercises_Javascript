@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario</title>
+    <script>
+        function comprobarDisponibilidad() {
+            var nombreUsuario = document.getElementById("nombreUsuario").value;
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var respuesta = xhr.responseXML;
+                    var disponibilidad = respuesta.getElementsByTagName('disponible')[0].textContent;
+
+                    if (disponibilidad === "true") {
+                        document.getElementById("resultado1").textContent = "Nombre disponible";
+                    } else {
+                        document.getElementById("resultado1").textContent = "Nombre no disponible";
+                        document.getElementById("resultado2").textContent = "Puedes utilizar los siguientes nombres";
+                        
+                        var nueva_disponibiliad = "False"
+                        while (nueva_disponibiliad === "False"){
+                            var nuevonombre = nombreUsuario + Math.floor(Math.random()* 100);
+                            nueva_disponibiliad = nuevonombre.getElementsByTagName('disponible')[0].textContent;
+                        }
+                            
+
+                        document.getElementById("resultado3").textContent = nuevonombre;
+                        
+                    }
+                }
+            };
+
+            xhr.open("POST", "comprobar_usuario.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("nombreUsuario=" + encodeURIComponent(nombreUsuario));
+        }
+    </script>
+</head>
+<body>
+    <h2>Registro de Usuario</h2>
+    <form>
+        <label for="nombreUsuario">Nombre de Usuario:</label>
+        <input type="text" id="nombreUsuario" name="nombreUsuario" required>
+        <button type="button" onclick="comprobarDisponibilidad()">Comprobar disponibilidad</button>
+    </form>
+    <div id="resultado1"></div>
+    <div id="resultado2"></div>
+    <div id="resultado3"></div>
+</body>
+</html>
