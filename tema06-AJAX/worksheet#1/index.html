@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GeoAPI</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <form action="get" class="container">
+            <label for="comunidad">Selecciona una Comunidad:</label>
+            <select id="comunidad"></select>
+
+            <label for="provincia">Selecciona una Provincia:</label>
+            <select id="provincia"></select>
+
+            <label for="municipio">Selecciona un Municipio:</label>
+            <select id="municipio"></select>
+        </form>
+
+        <script>
+            urlCom =
+                "https://apiv1.geoapi.es/comunidades?type=JSON&key=34b7575bb10d3e30519fc9ccd25693dffd05388f6db20baa03b8c3800a85c3b0";
+
+            xhttp.onreadystatechange = function () {
+                function cargarProvincias() {
+                    var comunidad = document.getElementById("comunidad");
+                    var provincia = document.getElementById("provincia");
+                    var municipio = document.getElementById("municipio");
+
+                    // Obtén la referencia al elemento con el id "provincia"
+                    var provincia = document.getElementById("provincia");
+
+                    // Elimina todos los elementos hijos existentes (opcional, dependiendo de tu caso)
+                    provincia.innerHTML = "";
+
+                    // Crea un nuevo elemento option
+                    var opcionSelecciona = document.createElement("option");
+
+                    // Asigna el texto y el valor al nuevo elemento option
+                    opcionSelecciona.textContent = "Selecciona una provincia";
+                    opcionSelecciona.value = "";
+
+                    // Añade el nuevo elemento option como hijo del elemento con el id "provincia"
+                    provincia.appendChild(opcionSelecciona);
+
+                    municipio.innerHTML =
+                        "<option value=''>Selecciona un municipio</option>";
+
+                    var comunidadSeleccionada = comunidad.value;
+
+                    if (comunidadSeleccionada) {
+                        var provinciasComunidad =
+                            provincias[comunidadSeleccionada];
+
+                        provinciasComunidad.forEach(function (provincia) {
+                            var option = document.createElement("option");
+                            option.value = provincia;
+                            option.text = provincia;
+                            provinciaSelect.appendChild(option);
+                        });
+                    }
+                }
+
+                function cargarMunicipios() {
+                    var provincia = document.getElementById("provincia");
+                    var municipio = document.getElementById("municipio");
+
+                    municipio.innerHTML =
+                        "<option value=''>Selecciona un municipio</option>";
+
+                    var provinciaSeleccionada = provincia.value;
+
+                    if (provinciaSeleccionada) {
+                        var municipiosProvincia =
+                            municipios[provinciaSeleccionada];
+
+                        municipiosProvincia.forEach(function (municipio) {
+                            var option = document.createElement("option");
+                            option.value = municipio;
+                            option.text = municipio;
+                            municipio.appendChild(option);
+                        });
+                    }
+                }
+            };
+
+            xhr.open("get", url, true);
+            xhr.send();
+        </script>
+    </body>
+</html>
